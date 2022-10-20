@@ -9,7 +9,6 @@ import java.util.ArrayList;
  */
 public class Deck
 {
-    // instance variables - replace the example below with your own
     private List<Card> cards;
 
     /**
