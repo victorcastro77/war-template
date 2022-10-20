@@ -7,7 +7,6 @@
  */
 public class Card
 {
-    // instance variables - replace the example below with your own
     private int rank;
     private String face;
     private String suit;
