@@ -26,23 +26,11 @@ public class Card
         return this.rank;
     }
     
-    public void setRank(int newRank) {
-        this.rank = newRank;
-    }
-
     public String getSuit() {
         return this.suit;
     }
 
-    public void setSuit(String newSuit) {
-        this.suit = newSuit;
-    }
-
     public String getFace() {
         return this.face;
-    }
-
-    public void setFace(String newFace) {
-        this.face = newFace;
     }
 }
