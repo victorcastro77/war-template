@@ -15,8 +15,8 @@ public class War
     public War()
     {
         // Initializations here...
-        
-        
+        int p1;
+        int p2;
         // ...then run the event loop
         this.runEventLoop();
     }
@@ -26,7 +26,7 @@ public class War
      * from the War flowchart you created for this game
      */
     public void runEventLoop() {
-
+        
     }
     
     /**

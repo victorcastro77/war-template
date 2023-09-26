@@ -37,6 +37,7 @@ public class Deck
      * @returns Number of cards in the deck
      */
     public int getDeckSize() {
+        
         return cards.size();
     }
     
@@ -44,7 +45,9 @@ public class Deck
      * Shuffles the cards in the deck
      */
     public void shuffle() {
-        // To be written
+        int r = (int)(Math.random()*13)+1;
+        Card.ranks = this.ranks[r];
+        
     }
     
     /**
