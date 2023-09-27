@@ -47,7 +47,6 @@ public class Deck
     public void shuffle() {
         int r = (int)(Math.random()*13)+1;
         Card.ranks = this.ranks[r];
-        
     }
     
     /**
