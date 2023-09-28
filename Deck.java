@@ -45,8 +45,7 @@ public class Deck
      * Shuffles the cards in the deck
      */
     public void shuffle() {
-        int r = (int)(Math.random()*13)+1;
-        Card.ranks = this.ranks[r];
+        //
     }
     
     /**
@@ -80,7 +79,7 @@ public class Deck
      * @param cardToAdd: Card to add to this deck
      */
     public void addCardToDeck(Card cardToAdd) {
-        // To be written
+        // To be written\\\\\
     }
     
 }
