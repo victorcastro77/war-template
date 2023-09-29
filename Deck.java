@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Emulate a deck of cards
@@ -18,7 +19,7 @@ public class Deck
     {
         cards = new ArrayList<Card>();
     }
-    
+
     public void initializeNewDeck() {
         String[] suits = {"Hearts","Clubs","Spades","Diamonds"};
         int[] ranks = {2,3,4,5,6,7,8,9,10,11,12,13,14};
@@ -37,17 +38,17 @@ public class Deck
      * @returns Number of cards in the deck
      */
     public int getDeckSize() {
-        
+
         return cards.size();
     }
-    
+
     /**
      * Shuffles the cards in the deck
      */
     public void shuffle() {
         //
     }
-    
+
     /**
      * Deal all the cards in the deck to make two new decks of cards
      * 
@@ -64,22 +65,31 @@ public class Deck
         }
         return halves;
     }
-    
+
     /**
      * Deal the top card of the deck and remove it from the deck
      * @returns The top card of the deck (at cards index 0)
      */
     public Card dealCardFromDeck() {
         // To be written 
-        return null;
+        int index = 0;
+        Card dealCard;
+        if (cards.size() > index) {
+            dealCard = cards.get(index);
+            cards.remove(dealCard);
+            index = index +1;
+            return dealCard;
+        } else {
+            return null;
+        }
     }
-    
+
     /**
      * Adds the provided card to the deck
      * @param cardToAdd: Card to add to this deck
      */
     public void addCardToDeck(Card cardToAdd) {
-        // To be written\\\\\
+        cards.add(cardToAdd);
     }
-    
+
 }

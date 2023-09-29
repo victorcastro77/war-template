@@ -43,7 +43,7 @@ public class War
         boolean hasAll = false;
         boolean p1Win = false;
         boolean p2Win = false;
-        if (getDeckSize1(p1) ==52) {
+        if (getDeckSize1(p1) == 52) {
             p1Win = true;
         } else if (getDeckSize2(p2) == 52) {
             p2Win = true;
@@ -52,6 +52,7 @@ public class War
             hasAll = true;
         }
         while (!hasAll) {
+            addCardToDeck(p1);
             
         }
     }
