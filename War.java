@@ -52,7 +52,6 @@ public class War
             hasAll = true;
         }
         while (!hasAll) {
-            addCardToDeck(p1);
             
         }
     }
