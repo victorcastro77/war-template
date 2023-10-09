@@ -52,7 +52,12 @@ public class War
             hasAll = true;
         }
         while (!hasAll) {
+            p1.dealCardFromDeck();
+            p2.dealCardFromDeck();
             
+            if (p1.Card > p2.dealCardFromDeck()) {
+                
+            }
         }
     }
     
