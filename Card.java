@@ -7,7 +7,7 @@
  */
 public class Card
 {
-    private int rank;
+    public int rank;
     private String face;
     private String suit;
 
