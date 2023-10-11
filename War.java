@@ -56,7 +56,17 @@ public class War
             Card p2card = p2.dealCardFromDeck();
             
             if (p1card.rank > p2card.rank) {
-                p1 += 
+                System.out.println("P1 won this round");
+            } else if (p2card.rank > p1card.rank) {
+                System.out.println("P2 won this round");
+            } else if ((p1.getDeckSize() >= 4) && (p2.getDeckSize() >= 4)) {
+                
+            } else if (p1.getDeckSize() < 4) {
+                System.out.println("P2 wins the game");
+                p2Win = true;
+            } else {
+                System.out.println("P1 wins the game");
+                p1Win = true;
             }
         }
     }
