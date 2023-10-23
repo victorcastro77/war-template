@@ -1,7 +1,7 @@
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
-
+import java.util.Collections;
 /**
  * Emulate a deck of cards
  *
@@ -46,7 +46,8 @@ public class Deck
      * Shuffles the cards in the deck
      */
     public void shuffle() {
-        //
+        long seed = System.nanoTime();
+        Collections.shuffle(cards, new Random(seed));
     }
 
     /**
@@ -71,14 +72,8 @@ public class Deck
      * @returns The top card of the deck (at cards index 0)
      */
     public Card dealCardFromDeck() {
-        // To be written 
-        int index = 0;
-        Card dealCard;
-        if (cards.size() > index) {
-            dealCard = cards.get(index);
-            cards.remove(dealCard);
-            index = index +1;
-            return dealCard;
+        if (!cards.isEmpty()) {
+            return cards.remove(0);
         } else {
             return null;
         }
