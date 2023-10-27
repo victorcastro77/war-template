@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class War {
     private Deck p1;
     private Deck p2;
@@ -36,6 +39,8 @@ public class War {
                 // War situation
                 System.out.println("War!");
 
+                List<Card> warPile = new ArrayList<>();
+
                 // Continue drawing 4 cards from each player
                 for (int i = 0; i < 3; i++) {
                     if (p1.getDeckSize() > 0 && p2.getDeckSize() > 0) {
@@ -45,41 +50,51 @@ public class War {
                         System.out.println("P1's war card: " + p1WarCard.getFace() + " of " + p1WarCard.getSuit());
                         System.out.println("P2's war card: " + p2WarCard.getFace() + " of " + p2WarCard.getSuit());
 
-                        if (p1WarCard.getRank() > p2WarCard.getRank()) {
-                            System.out.println("P1 won the war");
-                            p1.addCardToDeck(p1card);
-                            p1.addCardToDeck(p2card);
-                            p1.addCardToDeck(p1WarCard);
-                            p1.addCardToDeck(p2WarCard);
-                        } else if (p2WarCard.getRank() > p1WarCard.getRank()) {
-                            System.out.println("P2 won the war");
-                            p2.addCardToDeck(p1card);
-                            p2.addCardToDeck(p2card);
-                            p2.addCardToDeck(p1WarCard);
-                            p2.addCardToDeck(p2WarCard);
-                        } else {
+                        warPile.add(p1WarCard);
+                        warPile.add(p2WarCard);
+                    }
+                }
 
+                // Determine the winner of the war
+                if (!warPile.isEmpty()) {
+                    int p1WarCardRank = warPile.get(warPile.size() - 4).getRank(); // P1's last war card
+                    int p2WarCardRank = warPile.get(warPile.size() - 2).getRank(); // P2's last war card
+
+                    if (p1WarCardRank > p2WarCardRank) {
+                        System.out.println("P1 won the war");
+                        p1.addCardToDeck(p1card);
+                        p1.addCardToDeck(p2card);
+                        for (Card warCard : warPile) {
+                            p1.addCardToDeck(warCard);
+                        }
+                    } else if (p2WarCardRank > p1WarCardRank) {
+                        System.out.println("P2 won the war");
+                        p2.addCardToDeck(p1card);
+                        p2.addCardToDeck(p2card);
+                        for (Card warCard : warPile) {
+                            p2.addCardToDeck(warCard);
                         }
                     }
                 }
             }
+
             round++;
             if (round >= roundLimit) {
                 // End the game in a draw if the round limit is reached.
                 System.out.println("Game ends in a draw after " + round + " rounds.");
                 return;
             }
+            if (p1.getDeckSize() == 0) {
+                System.out.println("P2 wins the game");
+                return;
+            } else if (p2.getDeckSize() == 0) {
+                System.out.println("P1 wins the game");
+                return;
+            }
         }
-        if (p1.getDeckSize() == 0) {
-            System.out.println("P2 wins the game");
-            return;
-        } else if (p2.getDeckSize() == 0) {
-            System.out.println("P1 wins the game");
-            return;
         }
-    }
-
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         War war = new War();
     }
 }
+
